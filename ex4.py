@@ -1,6 +1,6 @@
 import cv2
 
-example = cv2.imread("../ExampleImages/cameraman.jpg")
+example = cv2.imread("../ExampleImages/closing.jpg")
 params = [(11, 21, 7), (11, 41, 21), (11, 61, 39)]
 
 kernelSizes = [(3, 3), (5, 5), (9, 9), (15, 15)]
@@ -27,11 +27,9 @@ for (diameter, sigmaColor, sigmaSpace) in params:
 
 cv2.waitKey(0)
 
-#Czy rozmycie dwustronne skutecznie redukuje szum
-    #Rozmycie dwustronne najskuteczniej redukuje szum
+#Które metody najmocniej rozmywają tekst?
+    #Najmocniej Median oraz Average
 
-#Czy zachowuje lepiej krawędzie w porównaniu do innych metod?
-    #Zdecydowanie lepiej, praktycznie nietracimy informacji o krawędziach
-
-#Jakie wartości parametrów daja najlepsze rezultaty?
-    #Wysoka wartość paramtetru sigmaColor w przypadku zdjęcia cameraman
+#Które pozwalają zachować jego czytelność?
+    #Zdecydowanie rozmycie dwustronne aczkolwiek Gaussian
+    #również niepowoduje nieczytelnego rozmycia
