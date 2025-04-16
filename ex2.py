@@ -1,0 +1,13 @@
+import cv2
+
+image = cv2.imread("../ExampleImages/paving_stone_shadow.jpg")
+cv2.imshow("Original", image)
+
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+blurred = cv2.GaussianBlur(gray, (7, 7), 0)
+
+for i in range(1,5):
+    thresh = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, (i*10)+1, 10)
+    cv2.imshow(f"Adaptive {(i*10)+1}", thresh)
+
+cv2.waitKey(0)
